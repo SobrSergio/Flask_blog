@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Пост номер: {{ post.id }}{% endblock %}
+
+{% block body %}
+<style>
+    hr {
+      color: #ffffff;
+  }
+  </style>
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+            <div class="p-md-5 mb-4 row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-dark">
+            <div class="post-preview"><br>
+                <h1 class="text-white">Название: {{ post.title }}</h1><br>
+                <div class="text-white">Описание: {{ post.body }}</div><br><hr><br>
+                <div class="text-info">Создатель поста: <a class="text-info" href="{{ url_for('profile', username=post.user_username) }}">{{ post.user_username }}</a></div><br>
+                <div class="text-info">Время создания: {{ post.time_created }}</div><br>
+                <div class="text-info">Все теги этого поста:
+                    {% for tag in tags %}
+                    <div><a class="text-info" href="{{ url_for('tag_current', link=tag.link ) }}">{{ tag.name }}</a></div>
+                    {% endfor %}
+                </div>
+
+
+                <hr><br>
+                {% if current_user.id == post.user_id %}
+                <a href="{{ url_for('post_settings', link=post.link) }}"><button type="button" class="btn btn-info">Изменить</button></a><br><br>
+                {% endif %}
+
+
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Профиль{% endblock %}
+
+{% block body %}
+<style>
+  hr {
+    color: #ffffff;
+}
+</style>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4 bg-dark">
+          <div class="card-body text-center">
+            <img src="{{ url_for('static', filename='icons/' + user.icon) }}" alt="Аватарка" class="bd-placeholder-img rounded-circle" width="200" height="200"> <!--путь к ссылке, static это значит берется все из этой папки, 
+              filename= это название файла, которое мы берем, alt=это то, что выведется в случае если файл не найдется-->
+            <h5 class="my-3 text-white">{{ user.username }}</h5>
+            <div class="d-flex justify-content-center mb-2">
+              {% if current_user.id == user.id %}
+              <a href="{{ url_for('logout')}}"><button type="button" class="btn btn-danger">Выйти из профиля</button></a>
+            {% endif %}
+            </div>
+            {% if current_user.id == user.id %}
+            <a href="{{ url_for('profile_setting', username=user.username)}}"><button type="button" class="btn btn-outline-info">Изменить профиль</button></a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4 bg-dark">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0  text-info">Никнейм:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ user.username }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-info">Почта:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ user.email }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-info">Имя:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ user.first_name }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-info">Фамилия:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ user.last_name }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-info">Возраст:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ user.age }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-info">Город:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ user.location }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <div class="card mb-4 mb-md-0 bg-dark">
+              <div class="card-body">
+                <p class="mb-4"><span class="text-info font-italic me-1">Посты:</span> </p>
+                {% for posts in post %}
+                  <p class="text-white">Пост: <a class="text-info" href="{{ url_for('post_detail', link=posts.link) }}">{{ posts.title }}</a></p><hr>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+
+
+{% endblock %}
+

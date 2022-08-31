@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ tag.name }}{% endblock %}
+
+{% block body %}
+
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+            <div class="p-md-5 mb-4 row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-dark">
+            <div class="post-preview"><br>
+                    <h1 class="text-white">Посты с тегом {{ tag.name }}</h1><br><br>
+                    {% for post in posts %}
+                    <div class="text-white pr-10">Пост: <a href="{{ url_for('post_detail', link=post.link) }}" class="text-info">{{ post.title }}</a></div><br>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

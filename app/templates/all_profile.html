@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Все пользователи{% endblock %}
+
+{% block body %}
+<style>
+    hr {
+      color: #ffffff;
+  }
+  </style>
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post preview-->
+            <div class="p-md-5 mb-4 row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative bg-dark">
+            <div class="post-preview"><br>
+                <h1 class="text-white">Все пользователи: </h1><br><hr><br>
+                {% for user1 in user %}
+                <div class="text-white">Пользователь: {{ user1.username }}, email: {{ user1.email }}, <a class="text-info" href="{{ url_for('profile', username=user1.username) }}">Профиль</a></div>
+                <br><hr><br>
+                {% endfor %}
+
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Профиль{% endblock %}
+
+{% block body %}
+<style>
+  hr {
+    color: #ffffff;
+}
+</style>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4 bg-dark">
+          <div class="card-body text-center">
+            <div>
+              {% if get_flashed_messages() %}
+              <div>
+                  {% for mess in get_flashed_messages() %}
+                      <h5 class="alert alert-danger alert-dismissible fade show">{{mess}}</h5>
+                  {% endfor %}
+              </div>
+              {% endif %}
+          </div>
+            <form action="", method="post" enctype="multipart/form-data">
+              {{ form.hidden_tag() }}
+            <img src="{{ url_for('static', filename='icons/' + user.icon) }}" alt="Аватарка" class="bd-placeholder-img rounded-circle" width="200" height="200"> <!--путь к ссылке, static это значит берется все из этой папки, 
+              filename= это название файла, которое мы берем, alt=это то, что выведется в случае если файл не найдется-->
+            <h5 class="my-3 text-white">{{ user.username }}</h5>
+            <div class="d-flex justify-content-center mb-2">
+            </div>
+              <div class="container">
+                <p class="text-info">Сменить аватарку профиля: </p>
+                <p class="">{{ form.photo(class="form-control form-control") }}</p>
+              </div>
+
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4 bg-dark">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0  text-info">Никнейм:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ form.username(class="form-control", value=user.username) }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-info">Почта:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ form.email(class="form-control", value=user.email) }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-info">Имя:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ form.first_name(class="form-control", value=user.first_name) }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-info">Фамилия:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ form.last_name(class="form-control", value=user.last_name) }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-info">Возраст:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ form.age(class="form-control", value=user.age) }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-info">Город:</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-white mb-0">{{ form.location(class="form-control", value=user.location) }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="">
+              {{ form.submit(class="btn btn-outline-info px-3") }}
+          </div>
+          </div>
+        </div>
+                
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
+
+
+{% endblock %}
+

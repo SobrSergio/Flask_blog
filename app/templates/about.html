@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}О сайте{% endblock %}
+
+{% block body %}
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+      <h1 class="display-4 fw-normal">FlaskPost сайт</h1><br>
+      <p class="lead fw-normal">На этом сайте вы можете зарегистрироваться и создавать посты, которые смогут видеть другие люди. Так-же вы сможете смотреть за постами других людей и оставлять отзывы на них. Зарегистрируйтесь прямо сейчас, если вы это не еще не сделали!</p>
+      <br><a class="btn btn-outline-info" href="{{ url_for('register') }}">Зарегистрироваться</a>
+    </div>
+  </div>
+{% endblock %}
