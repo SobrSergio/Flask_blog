@@ -17,7 +17,7 @@
                 <h1 class="text-white">Название: {{ post.title }}</h1><br>
                 <div class="text-white">Описание: {{ post.body }}</div><br><hr><br>
                 <div class="text-info">Создатель поста: <a class="text-info" href="{{ url_for('profile', username=post.user_username) }}">{{ post.user_username }}</a></div><br>
-                <div class="text-info">Время создания: {{ post.time_created }}</div><br>
+                <div class="text-info">Время создания: {{ post.time_created.strftime('%y-%m-%d') }}</div><br>
                 <div class="text-info">Все теги этого поста:
                     {% for tag in tags %}
                     <div><a class="text-info" href="{{ url_for('tag_current', link=tag.link ) }}">{{ tag.name }}</a></div>

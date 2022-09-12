@@ -16,8 +16,14 @@ import os # нужно для работы с аватаркой
 
 @app.route('/') #создаем путь на главную страницу
 def index():
-    last_user = User.query.all()[-1]
-    last_post = Post.query.all()[-1]
+    if User.query.all() != []:
+        last_user = User.query.all()[-1]
+    else:
+        last_user = []
+    if Post.query.all() != []:
+        last_post = Post.query.all()[-1]
+    else: 
+        last_post = []
     return render_template('index.html', last_user=last_user, last_post=last_post) #рендер делает обработку html файла
 
 
@@ -102,7 +108,8 @@ def profile_setting(username):
         return redirect(url_for('index'))
     
     if form.validate_on_submit(): #проверка валидаторов из формы 
-        user.username, user.email, user.age, user.location, user.first_name, user.last_name, photo = form.username.data, form.email.data, form.age.data, form.location.data, form.first_name.data, form.last_name.data, request.files['photo']
+        user.username, user.email, user.age, user.location, user.first_name, user.last_name, photo = \
+        form.username.data, form.email.data, form.age.data, form.location.data, form.first_name.data, form.last_name.data, request.files['photo']
         db.session.commit() #меняем значения в базе данных и сохраняем их, request.files обязательно.
         
         if photo.filename != '': #если  пользователь добавил фотку, то
