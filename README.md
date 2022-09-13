@@ -22,8 +22,9 @@
 
 </div
 
-<h2>Запуск проекта</h2>
+<h2 margin-bottom="30px">Запуск проекта</h2>
 
+<h3>Cоздать и активировать виртуальное окружение:</h3>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>python -m venv env
 </code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="python -m venv env" tabindex="0" role="button">
