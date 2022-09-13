@@ -20,9 +20,9 @@
 <img src="https://user-images.githubusercontent.com/107222527/190019686-7a313f3d-a4cf-4303-b983-c2760a3db8b2.png" width=''>
 
 
-</div
+</div>
 
-<h2 margin-bottom="30px">Запуск проекта</h2>
+<h1>Запуск проекта</h1>
 
 <p>Cоздать и активировать виртуальное окружение:</p>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>python -m venv env
