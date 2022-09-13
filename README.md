@@ -1,6 +1,5 @@
 <h1 align="center">FlaskBlog - Сайт Блог на Flask</h1>
 <h1>Введение в проект</h2>
-<hr>
 <p>Пример приложения для веб-разработки на Python с помощью Flask. <br><br>
 Блог на Flask, который может сильно помочь для изучения. В проекте есть: <br>
   <ul dir="auto">
@@ -12,7 +11,6 @@
 </ul>
 </p>
 
-<hr>
 
 <h1>Скриншоты</h3>
 <img src="https://user-images.githubusercontent.com/107222527/188509474-c44a7e98-c51f-45b1-bb62-f41faaa7eae3.png" width=''>
