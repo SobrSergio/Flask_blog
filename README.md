@@ -1,4 +1,4 @@
-<h1 align="center" color='blue'>FlaskBlog - Сайт Блог на Flask</h1>
+<h1 align="center">FlaskBlog - Сайт Блог на Flask</h1>
 <h3>Введение в проект</h3>
 <hr>
 <p>Пример приложения для веб-разработки на Python с помощью Flask. <br><br>
@@ -14,11 +14,12 @@
 <hr>
 
 <h3>Скриншоты</h3>
-<div display='flex'>
 <img src="https://user-images.githubusercontent.com/107222527/188509474-c44a7e98-c51f-45b1-bb62-f41faaa7eae3.png" width=''>
 <img src="https://user-images.githubusercontent.com/107222527/188509476-94510abb-4cd4-4cf3-8f3c-7f380c438b81.png" width=''>
+<img src="https://user-images.githubusercontent.com/107222527/190019686-7a313f3d-a4cf-4303-b983-c2760a3db8b2.png" width=''>
+
+
 </div
-<hr>
 
 <h3>Запуск</h3>
 
